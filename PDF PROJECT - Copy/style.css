@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#drop-zone {
+    border: 2px dashed #aaa;
+    padding: 40px;
+    margin: 20px auto;
+    width: 400px;
+    background: #333;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 10px;
+    background: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #45a049;
+}

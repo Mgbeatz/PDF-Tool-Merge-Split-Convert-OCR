@@ -1,0 +1,78 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation bar */
+nav {
+  background: #222;
+  padding: 10px 20px;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: #aaa;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a.active,
+nav a:hover {
+  color: #0af;
+}
+
+/* Main content area */
+main {
+  padding: 20px;
+}
+
+/* Utility classes */
+.drop-zone {
+  border: 2px dashed #444;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #222;
+  color: #888;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+.buttons button {
+  background: #0af;
+  border: none;
+  padding: 8px 15px;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background: #08c;
+}
+
+.progress-container {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+img.preview {
+  max-width: 150px;
+  margin: 10px 10px 0 0;
+  border-radius: 6px;
+  border: 1px solid #444;
+}

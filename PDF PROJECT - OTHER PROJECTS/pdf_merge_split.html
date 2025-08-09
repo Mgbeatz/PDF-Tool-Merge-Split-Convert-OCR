@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF Merge & Split</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="pdf_merge_split.html" class="active">PDF Merge & Split</a>
+    <a href="image_converters.html">Image Converters</a>
+  </nav>
+
+  <main>
+    <h1>PDF Merge & Split</h1>
+
+    <div id="drop-zone" class="drop-zone" tabindex="0" aria-label="Drop PDF files here or click to upload">
+      Drag & Drop PDF files here or click to select
+    </div>
+    <input type="file" id="file-input" accept="application/pdf" multiple hidden />
+
+    <div id="file-list" aria-live="polite" style="margin-top: 10px;"></div>
+
+    <div class="buttons" style="margin-top: 15px;">
+      <button id="merge-btn">Merge PDFs</button>
+      <button id="split-btn">Split PDF</button>
+    </div>
+
+    <div id="output" style="margin-top: 15px; font-weight: bold;"></div>
+  </main>
+
+  <!-- pdf-lib library -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+
+  <!-- Our JS file -->
+  <script src="pdf_merge_split.js"></script>
+</body>
+</html>

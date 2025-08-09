@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF Tools: Merge, Split & Convert</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- inside <head> or just before script.js -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+
+</head>
+<body>
+  <h1>PDF Tools</h1>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="merge-split">Merge & Split</button>
+    <button class="tab-btn" data-tab="convert">Convert</button>
+  </div>
+
+  <div id="merge-split" class="tab-content active">
+    <div id="drop-zone-ms">Drop PDF files here or click to select</div>
+    <input type="file" id="file-input-ms" multiple accept="application/pdf" hidden />
+
+    <div id="thumbnail-container-ms"></div>
+
+    <div>
+      <label>Page range (e.g. 1-3,5): </label>
+      <input type="text" id="page-range-ms" placeholder="All pages" />
+    </div>
+
+    <div class="buttons">
+      <button id="merge-btn">Merge PDFs</button>
+      <button id="split-btn">Split PDFs</button>
+    </div>
+
+    <div class="progress-container">
+      <progress id="progress-ms" value="0" max="100" style="width: 90%; display:none;"></progress>
+      <div id="progress-text-ms"></div>
+    </div>
+  </div>
+
+<div id="convert" class="tab-content">
+  <div id="drop-zone-cv">Drop a single PDF file here or click to select</div>
+  <input type="file" id="file-input-cv" accept="application/pdf" hidden />
+
+  <div id="file-info-cv"></div>
+
+  <div>
+    <label>Page range (e.g. 1-3,5): </label>
+    <input type="text" id="page-range-cv" placeholder="All pages" />
+  </div>
+
+  <div class="buttons">
+    <button id="to-excel-btn">Convert to Excel</button>
+    <button id="to-word-btn">Convert to Word</button>
+    <button id="to-ocr-excel-btn">Convert with OCR to Excel</button>
+  </div>
+
+  <div class="progress-container">
+    <progress id="progress-cv" value="0" max="100" style="width: 90%; display:none;"></progress>
+    <div id="progress-text-cv"></div>
+  </div>
+</div>
+
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.0.1/docx.min.js"></script>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

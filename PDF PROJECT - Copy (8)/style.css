@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.tabs {
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  margin-right: 5px;
+  background: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab-btn.active {
+  background: #004a9f;
+}
+
+.tab-content {
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 20px;
+  display: none;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#drop-zone-ms,
+#drop-zone-cv {
+  border: 2px dashed #999;
+  padding: 30px;
+  background: white;
+  cursor: pointer;
+  max-width: 600px;
+  margin: 10px auto 20px;
+}
+
+#thumbnail-container-ms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.thumbnail {
+  margin: 10px;
+  text-align: center;
+}
+
+.thumbnail img {
+  width: 120px;
+  height: auto;
+  border: 1px solid #ccc;
+  display: block;
+  margin: 0 auto 5px;
+}
+
+.buttons button {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  background: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.buttons button:hover {
+  background: #005a9e;
+}
+
+#file-info-cv {
+  margin-bottom: 15px;
+  font-weight: bold;
+}

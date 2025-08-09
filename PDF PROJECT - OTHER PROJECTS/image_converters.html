@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Converters</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="pdf_merge_split.html">PDF Merge & Split</a>
+    <a href="image_converters.html" class="active">Image Converters</a>
+  </nav>
+
+  <main>
+    <h1>Image Converters</h1>
+
+    <label for="converter-select">Select converter:</label>
+<select id="converter-select" aria-label="Choose image conversion type">
+  <option value="webp-jpg">WebP to JPG</option>
+  <option value="avif-jpg">AVIF to JPG</option>
+  <option value="bmp">BMP to JPG/PNG</option>
+  <option value="tiff">TIFF to JPG/PNG</option>
+</select>
+
+<label for="format-select" id="format-label" style="display:none; margin-left: 10px;">
+  Output format:
+</label>
+<select id="format-select" style="display:none;">
+  <option value="image/jpeg">JPG</option>
+  <option value="image/png">PNG</option>
+</select>
+
+
+    <div id="drop-zone" class="drop-zone" tabindex="0" aria-label="Drop image files here or click to upload">
+      Drag & Drop image files here or click to select
+    </div>
+    <input type="file" id="file-input" accept="image/webp,image/avif,image/bmp,image/tiff" multiple hidden />
+
+    <div id="file-list" aria-live="polite" style="margin-top: 10px;"></div>
+
+    <div class="buttons" style="margin-top: 15px;">
+      <button id="convert-btn">Convert</button>
+    </div>
+
+    <div id="output" style="margin-top: 15px; font-weight: bold;"></div>
+  </main>
+
+  <script src="image_converters.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bmp-js@0.1.0/dist/bmp.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/utif@3.0.2/UTIF.min.js"></script>
+
+</body>
+</html>
+

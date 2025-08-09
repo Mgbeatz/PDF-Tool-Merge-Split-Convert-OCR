@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#drop-zone {
+    border: 2px dashed #aaa;
+    padding: 40px;
+    margin: 20px auto;
+    width: 400px;
+    background: #1f1f1f;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+#drop-zone.dragover {
+    border-color: #4CAF50;
+    background: #2a2a2a;
+}
+
+#range-container {
+    margin-top: 15px;
+}
+
+#page-range {
+    padding: 5px;
+    font-size: 14px;
+    width: 200px;
+}
+
+.buttons {
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+#status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+#progress-container {
+    width: 400px;
+    height: 10px;
+    background: #333;
+    margin: 15px auto;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #4CAF50;
+    transition: width 0.3s ease;
+}

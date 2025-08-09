@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#drop-zone {
+    border: 2px dashed #999;
+    padding: 30px;
+    background: white;
+    cursor: pointer;
+}
+
+#thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.thumbnail {
+    margin: 10px;
+    text-align: center;
+}
+
+.thumbnail img {
+    width: 100px;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    background: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

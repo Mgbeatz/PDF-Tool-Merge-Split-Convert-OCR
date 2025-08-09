@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PDF Merge & Split Tool</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>📄 PDF Merge & Split Tool</h1>
+
+<div id="drop-zone">Drop PDF files here or click to select</div>
+<input type="file" id="file-input" accept="application/pdf" multiple style="display:none">
+
+<!-- File list preview -->
+<ul id="file-list"></ul>
+
+<!-- Page range input -->
+<div id="range-container">
+    <label for="page-range">Page Range (e.g. 1-3,5):</label>
+    <input type="text" id="page-range" placeholder="Leave empty for all pages">
+</div>
+
+<div class="buttons">
+    <button id="merge-btn">Merge PDFs</button>
+    <button id="split-btn">Split PDF</button>
+</div>
+
+<div id="status"></div>
+
+<div id="progress-container">
+    <div id="progress-bar"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

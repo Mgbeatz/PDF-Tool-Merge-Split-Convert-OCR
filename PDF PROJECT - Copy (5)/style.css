@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+#drop-area {
+  border: 2px dashed #333;
+  padding: 20px;
+  margin: 20px;
+  background: white;
+  cursor: pointer;
+}
+
+#thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.thumbnail {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+  background: white;
+  text-align: center;
+}
+
+.thumbnail canvas {
+  display: block;
+  margin: auto;
+  max-width: 120px;
+}
+
+.thumbnail input {
+  margin-top: 5px;
+}

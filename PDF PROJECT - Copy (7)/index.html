@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Tool - Merge, Split, Convert</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.0/docx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <h1>PDF Merge, Split & Convert</h1>
+
+    <div id="drop-zone">Drop PDF files here or click to upload</div>
+    <input type="file" id="file-input" accept="application/pdf" multiple style="display: none;">
+
+    <div id="thumbnails"></div>
+
+    <div class="buttons">
+        <button id="merge-btn">Merge PDFs</button>
+        <button id="split-btn">Split by Pages</button>
+        <button id="to-word-btn">PDF → Word</button>
+        <button id="to-excel-btn">PDF → Excel</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

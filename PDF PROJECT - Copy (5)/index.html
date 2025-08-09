@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Merge & Split with Thumbnails</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>PDF Merge & Split with Thumbnails</h1>
+
+  <div id="drop-area">
+    <p>Drag & Drop PDF files here or click to upload</p>
+    <input type="file" id="fileElem" multiple accept="application/pdf">
+  </div>
+
+  <div id="thumbnails"></div>
+
+  <div id="controls">
+    <button id="mergeBtn">Merge PDFs</button>
+    <button id="splitBtn">Split Selected Pages</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF Tools: Merge, Split & Convert</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>PDF Tools</h1>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="merge-split">Merge & Split</button>
+    <button class="tab-btn" data-tab="convert">Convert</button>
+  </div>
+
+  <div id="merge-split" class="tab-content active">
+    <div id="drop-zone-ms">Drop PDF files here or click to select</div>
+    <input type="file" id="file-input-ms" multiple accept="application/pdf" hidden />
+
+    <div id="thumbnail-container-ms"></div>
+
+    <div class="buttons">
+      <button id="merge-btn">Merge PDFs</button>
+      <button id="split-btn">Split PDFs</button>
+    </div>
+  </div>
+
+  <div id="convert" class="tab-content">
+    <div id="drop-zone-cv">Drop a single PDF file here or click to select</div>
+    <input type="file" id="file-input-cv" accept="application/pdf" hidden />
+
+    <div id="file-info-cv"></div>
+
+    <div class="buttons">
+      <button id="to-excel-btn">Convert to Excel</button>
+      <button id="to-word-btn">Convert to Word</button>
+    </div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.0.1/docx.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
