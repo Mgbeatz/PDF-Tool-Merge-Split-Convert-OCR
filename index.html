@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PDF Tool - Merge, Split, Convert, OCR</title>
+
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.min.js"></script>
+<!-- PDFLib for merging/splitting -->
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+<!-- XLSX for Excel export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<!-- docx.js for Word export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.4.0/docx.umd.js"></script>
+<!-- Tesseract.js for OCR -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+
+<script src="https://unpkg.com/tiff.js@0.15.0/build/tiff.min.js"></script>
+
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>PDF Tool</h1>
+  <nav>
+    <button class="tab-btn active" data-tab="merge-split">PDF Merge & Split</button>
+    <button class="tab-btn" data-tab="convert">PDF Convert</button>
+    <button class="tab-btn" data-tab="pdf-to-jpg">PDF to JPG</button>
+    <button class="tab-btn" data-tab="webp-to-jpg">WebP to JPG</button>
+    <button class="tab-btn" data-tab="avif-to-jpg">AVIF to JPG</button>
+    <button class="tab-btn" data-tab="bmp-converter">BMP to JPG/PNG</button>
+    <button class="tab-btn" data-tab="tiff-converter">TIFF to JPG/PNG</button>
+  </nav>
+</header>
+
+<main>
+
+  <section id="merge-split" class="tab-content active">
+    <div id="drop-zone-ms" class="drop-zone">Drop PDF files here or click to select</div>
+    <input type="file" id="file-input-ms" accept="application/pdf" multiple hidden />
+    <div id="thumbnail-container-ms" class="thumbnail-container"></div>
+
+    <div>
+      <label>Page range (e.g. 1-3,5) applies to each file:</label>
+      <input type="text" id="page-range-ms" placeholder="All pages" />
+    </div>
+
+    <div class="buttons">
+      <button id="merge-btn">Merge PDFs</button>
+      <button id="split-btn">Split PDFs</button>
+    </div>
+
+    <div class="progress-container">
+      <progress id="progress-ms" value="0" max="100" style="width: 90%; display:none;"></progress>
+      <div id="progress-text-ms"></div>
+    </div>
+  </section>
+
+  <section id="convert" class="tab-content">
+    <div id="drop-zone-cv" class="drop-zone">Drop a single PDF here or click to select</div>
+    <input type="file" id="file-input-cv" accept="application/pdf" hidden />
+    <div id="file-info-cv"></div>
+
+    <div>
+      <label>Page range (e.g. 1-3,5): </label>
+      <input type="text" id="page-range-cv" placeholder="All pages" />
+    </div>
+
+    <div class="buttons">
+      <button id="to-excel-btn">Convert to Excel</button>
+      <button id="to-word-btn">Convert to Word</button>
+      <button id="to-ocr-excel-btn">Convert with OCR to Excel</button>
+    </div>
+
+    <div class="progress-container">
+      <progress id="progress-cv" value="0" max="100" style="width: 90%; display:none;"></progress>
+      <div id="progress-text-cv"></div>
+    </div>
+  </section>
+
+  
+  <!-- Add this new section inside <main> after the existing ones -->
+<section id="pdf-to-jpg" class="tab-content">
+  <div id="drop-zone-jpg" class="drop-zone">Drop a single PDF here or click to select</div>
+  <input type="file" id="file-input-jpg" accept="application/pdf" hidden />
+  <div id="file-info-jpg"></div>
+
+  <div>
+    <label>Page range (e.g. 1-3,5): </label>
+    <input type="text" id="page-range-jpg" placeholder="All pages" />
+  </div>
+
+  <div class="buttons">
+    <button id="convert-to-jpg-btn">Convert to JPG</button>
+  </div>
+
+  <div class="progress-container">
+    <progress id="progress-jpg" value="0" max="100" style="width: 90%; display:none;"></progress>
+    <div id="progress-text-jpg"></div>
+  </div>
+
+  <div id="jpg-results" style="margin-top: 15px; display:flex; flex-wrap: wrap; gap: 10px;"></div>
+</section>
+
+
+
+<section id="webp-to-jpg" class="tab-content">
+  <div id="drop-zone-webp" class="drop-zone">Drop WebP images here or click to select</div>
+  <input type="file" id="file-input-webp" accept="image/webp" multiple hidden />
+  <div id="file-info-webp"></div>
+
+  <div class="buttons">
+    <button id="convert-webp-to-jpg-btn">Convert to JPG</button>
+  </div>
+
+  <div class="progress-container">
+    <progress id="progress-webp" value="0" max="100" style="width: 90%; display:none;"></progress>
+    <div id="progress-text-webp"></div>
+  </div>
+
+  <div id="webp-jpg-results" style="margin-top: 15px; display:flex; flex-wrap: wrap; gap: 10px;"></div>
+
+
+<div>
+  <label for="webp-url-input">Or enter WebP image URL:</label><br />
+  <input type="url" id="webp-url-input" placeholder="https://example.com/image.webp" style="width: 100%; max-width: 400px;" />
+  <button id="load-webp-url-btn">Load Image</button>
+</div>
+
+
+
+</section>
+
+
+
+<section id="avif-to-jpg" class="tab-content">
+  <div id="drop-zone-avif" class="drop-zone">Drop AVIF images here or click to select</div>
+  <input type="file" id="file-input-avif" accept="image/avif" multiple hidden />
+  <div id="file-info-avif"></div>
+
+  <div class="buttons">
+    <button id="convert-avif-to-jpg-btn">Convert to JPG</button>
+  </div>
+
+  <div class="progress-container">
+    <progress id="progress-avif" value="0" max="100" style="width: 90%; display:none;"></progress>
+    <div id="progress-text-avif"></div>
+  </div>
+
+  <div id="avif-jpg-results" style="margin-top: 15px; display:flex; flex-wrap: wrap; gap: 10px;"></div>
+</section>
+
+
+
+
+<section id="bmp-converter" class="tab-content">
+  <div id="drop-zone-bmp" class="drop-zone">Drop BMP images here or click to select</div>
+  <input type="file" id="file-input-bmp" accept="image/bmp" multiple hidden />
+  <div id="file-info-bmp"></div>
+
+  <div class="buttons">
+    <button id="convert-bmp-to-jpg-btn">Convert to JPG</button>
+    <button id="convert-bmp-to-png-btn">Convert to PNG</button>
+  </div>
+
+  <div class="progress-container">
+    <progress id="progress-bmp" value="0" max="100" style="width: 90%; display:none;"></progress>
+    <div id="progress-text-bmp"></div>
+  </div>
+
+  <div id="bmp-results" style="margin-top: 15px; display:flex; flex-wrap: wrap; gap: 10px;"></div>
+</section>
+
+
+
+
+
+<section id="tiff-converter" class="tab-content">
+  <div id="drop-zone-tiff" class="drop-zone">Drop TIFF images here or click to select</div>
+  <input type="file" id="file-input-tiff" accept="image/tiff,image/tif" multiple hidden />
+  <div id="file-info-tiff"></div>
+
+  <div class="buttons">
+    <button id="convert-tiff-to-jpg-btn">Convert to JPG</button>
+    <button id="convert-tiff-to-png-btn">Convert to PNG</button>
+  </div>
+
+  <div class="progress-container">
+    <progress id="progress-tiff" value="0" max="100" style="width: 90%; display:none;"></progress>
+    <div id="progress-text-tiff"></div>
+  </div>
+
+  <div id="tiff-results" style="margin-top: 15px; display:flex; flex-wrap: wrap; gap: 10px;"></div>
+</section>
+
+
+
+
+
+
+</main>
+
+<script src="script.js"></script>
+
+
+
+<footer>
+  © 2025 PDF Tool — Created by Mg Beatz
+</footer>
+
+
+
+</body>
+</html>
+
